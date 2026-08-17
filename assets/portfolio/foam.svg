@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Synthetic seat foam">
+  <rect width="96" height="96" rx="8" fill="#f0f8f3"/>
+  <path d="M30 15h38c8 0 14 7 13 15l-4 29H22l-3-28c-1-9 4-16 11-16z" fill="#89c9a3" stroke="#2e7650" stroke-width="4"/>
+  <path d="M20 57h58c8 0 14 6 14 14v8H6v-7c0-8 6-15 14-15z" fill="#5eae80" stroke="#2e7650" stroke-width="4"/>
+  <path d="M33 29h34M28 43h42M22 69h56" stroke="#dff2e6" stroke-width="4" stroke-linecap="round"/>
+</svg>

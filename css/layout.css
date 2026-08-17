@@ -1,0 +1,95 @@
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: var(--nav-width) minmax(0, 1fr);
+  grid-template-areas:
+    "header header"
+    "nav workspace";
+}
+
+#app.has-properties {
+  grid-template-columns: var(--nav-width) minmax(0, 1fr) var(--properties-width);
+  grid-template-areas:
+    "header header header"
+    "nav workspace properties";
+}
+
+#app.has-tabs {
+  grid-template-rows: auto minmax(0, 1fr) minmax(92px, auto);
+  grid-template-areas:
+    "header header"
+    "nav workspace"
+    "tabs tabs";
+}
+
+#app.has-properties.has-tabs {
+  grid-template-columns: var(--nav-width) minmax(0, 1fr) var(--properties-width);
+  grid-template-areas:
+    "header header header"
+    "nav workspace properties"
+    "tabs tabs tabs";
+}
+
+.app-header {
+  grid-area: header;
+}
+
+.app-navigation {
+  grid-area: nav;
+  min-width: 0;
+}
+
+.app-workspace {
+  grid-area: workspace;
+  min-width: 0;
+  min-height: 0;
+}
+
+.app-properties {
+  grid-area: properties;
+  min-width: 0;
+}
+
+.app-tabs {
+  grid-area: tabs;
+  min-width: 0;
+}
+
+.app-status {
+  grid-area: status;
+  display: none;
+}
+
+#app:not(.has-properties) .app-properties,
+#app:not(.has-tabs) .app-tabs {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  #app.has-properties {
+    grid-template-columns: 190px minmax(0, 1fr) 260px;
+  }
+}
+
+@media (max-width: 900px) {
+  #app {
+    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "header header"
+      "nav workspace";
+  }
+
+  #app.has-tabs {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "header header"
+      "nav workspace"
+      "tabs tabs";
+  }
+
+  .app-properties {
+    display: none !important;
+  }
+}

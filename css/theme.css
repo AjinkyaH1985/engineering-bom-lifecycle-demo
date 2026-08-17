@@ -1,0 +1,97 @@
+:root {
+  --bg: #ffffff;
+  --panel: #f5f6f8;
+  --panel-strong: #eef1f5;
+  --border: #d6dbe3;
+  --border-dark: #b9c1cc;
+  --text: #1f2933;
+  --muted: #637083;
+  --selected: #d9ebff;
+  --selected-strong: #2f6fb3;
+  --success: #2f7d4f;
+  --warning: #a46a10;
+  --error: #b42318;
+  --header: #263341;
+  --header-text: #f8fafc;
+  --font: "Segoe UI", Inter, Roboto, Arial, sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --nav-width: 224px;
+  --properties-width: 320px;
+  --header-height: 64px;
+  --tabs-height: 154px;
+  --status-height: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  letter-spacing: 0;
+  overflow: hidden;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--border-dark);
+  background: #fff;
+  color: var(--text);
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--panel-strong);
+}
+
+button.primary {
+  background: var(--selected-strong);
+  border-color: var(--selected-strong);
+  color: #fff;
+}
+
+button.destructive {
+  border-color: #d28b82;
+  color: var(--error);
+}
+
+button.tertiary {
+  border-color: transparent;
+  background: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #5a9ce8;
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--muted);
+}

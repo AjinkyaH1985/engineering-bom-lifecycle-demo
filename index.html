@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering BOM Lifecycle Platform</title>
+  <link rel="icon" href="assets/portfolio/complete-seat.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/workspace.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/properties.css">
+  <link rel="stylesheet" href="css/tabs.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/refresh.css">
+</head>
+<body>
+  <div id="app" aria-label="Engineering BOM Lifecycle Platform">
+    <header id="app-header" class="app-header"></header>
+    <nav id="app-navigation" class="app-navigation" aria-label="Workspace navigation"></nav>
+    <main id="app-workspace" class="app-workspace" tabindex="-1"></main>
+    <aside id="app-properties" class="app-properties" aria-label="Properties panel"></aside>
+    <section id="app-tabs" class="app-tabs" aria-label="Related information"></section>
+    <footer id="app-status" class="app-status"></footer>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <div id="modal-root" class="modal-backdrop"></div>
+
+  <script src="vendor/jszip/jszip.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/events.js"></script>
+  <script src="src/data/reference-data.js"></script>
+  <script src="src/data/initial-state.js"></script>
+  <script src="src/data/seed-state.js"></script>
+<script src="src/scripts/core/errors.js"></script>
+  <script src="src/scripts/migrations/commodity-master-migration.js"></script>
+<script src="src/scripts/core/validation-service.js"></script>
+  <script src="src/scripts/core/storage-service.js"></script>
+  <script src="src/scripts/core/permission-service.js"></script>
+  <script src="src/scripts/core/app-state.js"></script>
+  <script src="src/scripts/core/context-service.js"></script>
+  <script src="src/scripts/core/audit-service.js"></script>
+  <script src="src/scripts/domain/part-image-service.js"></script>
+  <script src="src/scripts/import/xlsx-reader.js"></script>
+  <script src="src/scripts/import/bom-import-mapper.js"></script>
+  <script src="src/scripts/domain/program-service.js"></script>
+  <script src="src/scripts/domain/seat-variant-service.js"></script>
+  <script src="src/scripts/domain/feature-service.js"></script>
+  <script src="src/scripts/domain/feature-configuration-service.js"></script>
+  <script src="src/scripts/domain/engineering-module-service.js"></script>
+  <script src="src/scripts/domain/part-service.js"></script>
+  <script src="src/scripts/domain/engineering-bom-service.js"></script>
+  <script src="src/scripts/domain/engineering-discipline-service.js"></script>
+  <script src="src/scripts/domain/engineering-product-structure-service.js"></script>
+  <script src="src/scripts/domain/commercial-assessment-service.js"></script>
+  <script src="src/scripts/domain/engineering-change-service.js"></script>
+  <script src="src/scripts/domain/engineering-change-impact-service.js"></script>
+<script src="src/scripts/domain/commodity-management-service.js"></script>
+<script src="src/scripts/domain/commodity-master-service.js"></script>
+  <script src="src/scripts/domain/revision-service.js"></script>
+  <script src="src/scripts/domain/revision-excel-export-service.js"></script>
+  <script src="src/scripts/domain/dashboard-service.js"></script>
+  <script src="src/scripts/domain/structure-engineering-service.js"></script>
+  <script src="src/scripts/domain/admin-master-data-service.js"></script>
+  <script src="src/scripts/domain/bom-import-service.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/services/notification-service.js"></script>
+  <script src="js/services/revision-service.js"></script>
+  <script src="js/services/cost-service.js"></script>
+  <script src="js/services/validation-service.js"></script>
+  <script src="js/services/feature-service.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components/toast.js"></script>
+  <script src="js/components/modal.js"></script>
+  <script src="js/components/toolbar.js"></script>
+  <script src="js/components/table.js"></script>
+  <script src="js/components/tree.js"></script>
+  <script src="js/components/header.js"></script>
+<script src="js/components/navigation.js"></script>
+  <script src="js/components/properties-panel.js"></script>
+  <script src="js/components/related-tabs.js"></script>
+  <script src="js/components/status-bar.js"></script>
+  <script src="js/workspaces/dashboard.js"></script>
+  <script src="js/workspaces/program.js"></script>
+  <script src="js/workspaces/feature-matrix.js"></script>
+  <script src="js/workspaces/complete-seat.js"></script>
+  <script src="js/workspaces/structure.js"></script>
+  <script src="js/workspaces/foam.js"></script>
+  <script src="js/workspaces/plastic.js"></script>
+  <script src="js/workspaces/trim.js"></script>
+  <script src="js/workspaces/headrest.js"></script>
+  <script src="js/workspaces/armrest.js"></script>
+<script src="js/workspaces/commodity-management.js"></script>
+<script src="js/workspaces/commodity-mapping.js"></script>
+  <script src="js/workspaces/bom-cost.js"></script>
+  <script src="js/workspaces/revision.js"></script>
+  <script src="js/workspaces/excel-export.js"></script>
+  <script src="js/workspaces/engineering-change.js"></script>
+  <script src="js/workspaces/admin-master-data.js"></script>
+  <script src="js/workspaces/import-bom.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

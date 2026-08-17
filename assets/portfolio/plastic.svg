@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Synthetic plastic finisher">
+  <rect width="96" height="96" rx="8" fill="#f5f1fb"/>
+  <path d="M25 18h46l9 17-9 43H25L16 35z" fill="#ad8bd3" stroke="#65458c" stroke-width="4"/>
+  <path d="M32 29h32l5 9-5 27H32l-5-27z" fill="#d8c5ec"/>
+  <circle cx="30" cy="72" r="5" fill="#65458c"/><circle cx="66" cy="72" r="5" fill="#65458c"/>
+</svg>
