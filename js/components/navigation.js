@@ -135,12 +135,7 @@
       var root = app.utils.byId("app-navigation");
       var currentWorkspace = app.state.getCurrentWorkspace();
       recordVisit(currentWorkspace);
-      var homeActive = currentWorkspace === "dashboard";
       root.innerHTML = [
-        '<div class="nav-head">',
-        '<div class="nav-app-title">Engineering BOM Lifecycle</div>',
-        '<button type="button" class="nav-home' + (homeActive ? " active" : "") + '" data-workspace="dashboard"' + (homeActive ? ' aria-current="page"' : "") + '>Dashboard</button>',
-        '</div>',
         '<div class="nav-tabs" role="tablist">',
         '<button type="button" role="tab" class="' + (activeTab === "apps" ? "active" : "") + '" data-nav-tab="apps" aria-selected="' + (activeTab === "apps") + '">Apps</button>',
         '<button type="button" role="tab" class="' + (activeTab === "recent" ? "active" : "") + '" data-nav-tab="recent" aria-selected="' + (activeTab === "recent") + '">Recent Items</button>',

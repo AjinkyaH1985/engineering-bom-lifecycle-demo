@@ -44,6 +44,13 @@ const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
   });
 })();
 
+(function dashboardStaysReachable() {
+  const header = fs.readFileSync(path.join(root, "js/components/header.js"), "utf8");
+  const navigation = fs.readFileSync(path.join(root, "js/components/navigation.js"), "utf8");
+  assert.ok(header.includes('data-goto-workspace="dashboard"'), "The header title must link back to the Dashboard");
+  assert.ok(!navigation.includes("nav-app-title") && !navigation.includes("nav-home"), "The side menu must not repeat the title block");
+})();
+
 (function resetStaysReachable() {
   const tools = fs.readFileSync(path.join(root, "js/components/shell-tools.js"), "utf8");
   const header = fs.readFileSync(path.join(root, "js/components/header.js"), "utf8");

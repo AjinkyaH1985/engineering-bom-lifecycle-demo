@@ -361,43 +361,10 @@ button.hdr-result:hover:not(:disabled) {
   box-shadow: none;
 }
 
-.nav-head {
-  padding: 16px 16px 8px;
-}
-
-.nav-app-title {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-button.nav-home {
-  display: block;
-  height: auto;
-  min-height: 0;
-  margin-top: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  text-align: left;
-}
-
-button.nav-home:hover:not(:disabled),
-button.nav-home.active {
-  border: 0;
-  background: none;
-  color: var(--accent-strong);
-  text-decoration: underline;
-}
-
 .nav-tabs {
   display: flex;
   gap: 18px;
-  padding: 10px 16px 0;
+  padding: 16px 16px 0;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -1685,4 +1652,24 @@ label {
     min-width: 0 !important;
     max-width: none !important;
   }
+}
+
+/* The header title doubles as the link back to the Dashboard. */
+button.brand-title {
+  height: auto;
+  min-height: 0;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: #32363a;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+button.brand-title:hover:not(:disabled) {
+  border: 0;
+  background: var(--accent-hover);
+  color: var(--accent-strong);
 }
