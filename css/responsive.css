@@ -1,0 +1,722 @@
+/* ==========================================================================
+   Responsive layer.
+   Desktop (> 900px) keeps the original compact, table-oriented layout.
+   At 900px and below the sidebar becomes an off-canvas drawer, the page
+   scrolls as a whole, and controls get touch-friendly sizes.
+   ========================================================================== */
+
+/* ---------- Header additions (all sizes) ---------- */
+.nav-toggle {
+  display: none;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #3a2e1c;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--header-text);
+}
+
+.nav-toggle:hover {
+  background: #2a1f10;
+}
+
+.brand-mark {
+  width: auto;
+  min-width: 34px;
+  padding: 0 5px;
+  height: 28px;
+  border-color: #f3a800;
+  color: #f3a800;
+}
+
+.header-toolbar {
+  min-width: 0;
+}
+
+.header-context-chip,
+.header-reset {
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid #3a2e1c;
+  background: #231a0d;
+  color: #f4ead8;
+  font-size: 12px;
+}
+
+.header-context-chip:hover,
+.header-reset:hover {
+  background: #33260f;
+}
+
+.header-context-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 340px;
+  padding: 0 10px;
+}
+
+.header-context-chip .chip-label {
+  flex: 0 0 auto;
+  color: #f3a800;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.header-context-chip .chip-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-reset {
+  flex: 0 0 auto;
+  padding: 0 12px;
+}
+
+.nav-backdrop {
+  display: none;
+}
+
+.context-toggle {
+  display: none;
+}
+
+/* ---------- Dashboard quick-start guide (all sizes) ---------- */
+.demo-guide {
+  margin-top: 14px;
+  border: 1px solid #d8dde6;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(24, 34, 48, 0.08);
+}
+
+.demo-guide-head {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e6e9ee;
+}
+
+.demo-guide-head strong {
+  font-size: 14px;
+}
+
+.demo-guide-head span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.demo-guide-steps {
+  counter-reset: guide;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+}
+
+.demo-guide-steps li {
+  counter-increment: guide;
+  display: flex;
+}
+
+.demo-guide-steps button {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  height: auto;
+  min-height: 62px;
+  padding: 9px 10px 9px 42px;
+  border-color: #d8dde6;
+  border-radius: 6px;
+  background: #fbfbfa;
+  text-align: left;
+}
+
+.demo-guide-steps button:hover {
+  border-color: #f3a800;
+  background: #fff8e6;
+}
+
+.demo-guide-steps button::before {
+  content: counter(guide);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #140d05;
+  color: #f3a800;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.demo-guide-steps strong {
+  font-size: 13px;
+}
+
+.demo-guide-steps span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.dashboard-workspace {
+  overflow: auto;
+}
+
+.reset-copy {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.reset-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ---------- Large tablet / small laptop (<= 1100px) ---------- */
+@media (max-width: 1100px) {
+  .header-context-chip {
+    max-width: 240px;
+  }
+}
+
+/* ==========================================================================
+   Mobile + tablet portrait (<= 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  /* One column shell: header on top, page content below. */
+  #app,
+  #app.has-tabs,
+  #app.has-properties,
+  #app.has-properties.has-tabs {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "workspace";
+  }
+
+  #app.has-tabs,
+  #app.has-properties.has-tabs {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "header"
+      "workspace"
+      "tabs";
+  }
+
+  /* Sticky header with safe-area support. */
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    gap: 8px;
+    min-height: 52px;
+    padding: 6px 10px;
+    padding-top: calc(6px + env(safe-area-inset-top, 0px));
+    padding-left: calc(10px + env(safe-area-inset-left, 0px));
+    padding-right: calc(10px + env(safe-area-inset-right, 0px));
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .header-brand {
+    flex: 1 1 auto;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    display: none;
+  }
+
+  .brand-title {
+    max-width: none;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-toolbar {
+    flex: 0 1 auto;
+    gap: 6px;
+  }
+
+  .header-context-chip {
+    max-width: 200px;
+    height: 36px;
+  }
+
+  .header-context-chip .chip-label {
+    display: none;
+  }
+
+  .header-reset {
+    height: 36px;
+  }
+
+  /* Off-canvas navigation drawer. */
+  .app-navigation {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    width: min(84vw, 300px);
+    padding: calc(12px + env(safe-area-inset-top, 0px)) 10px calc(24px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: 8px 0 28px rgba(0, 0, 0, 0.35);
+    transform: translateX(-104%);
+    visibility: hidden;
+    transition: transform 0.22s ease, visibility 0s linear 0.22s;
+  }
+
+  body.nav-open .app-navigation {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.22s ease, visibility 0s;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgba(20, 13, 5, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  body.nav-open .nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Undo the icon-rail styling from the older 900px rules. */
+  .nav-group {
+    margin-bottom: 6px;
+  }
+
+  .nav-group-title {
+    padding: 10px 8px 5px;
+    font-size: 11px;
+    text-align: left;
+    overflow-wrap: normal;
+  }
+
+  .nav-item {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .nav-icon {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-label {
+    max-width: none;
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  /* Page-level scrolling instead of nested scroll panes. */
+  .app-workspace {
+    overflow: visible;
+    min-height: 0;
+  }
+
+  .workspace-body,
+  .dashboard-workspace {
+    flex: 0 0 auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 10px;
+    padding-left: calc(10px + env(safe-area-inset-left, 0px));
+    padding-right: calc(10px + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Workspace header. */
+  .workspace-header {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    min-height: 0;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .workspace-title {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .workspace-title h1 {
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  .workspace-title > span {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .workspace-meta {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .workspace-meta > .workspace-meta-item {
+    display: inline-block;
+    margin: 6px 8px 0 0;
+  }
+
+  /* Collapsible context filters. */
+  .context-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #c3cbd6;
+    border-radius: 6px;
+    background: #f8fafc;
+    text-align: left;
+  }
+
+  .context-toggle-label {
+    flex: 0 0 auto;
+    color: #8f5800;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .context-toggle-value {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text);
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .context-toggle-chev {
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #526479;
+    border-bottom: 2px solid #526479;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.15s ease;
+  }
+
+  .workspace-meta.context-open .context-toggle-chev {
+    transform: rotate(-135deg) translateY(-2px);
+  }
+
+  .context-filter-row {
+    display: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .workspace-meta:not(.context-open) .context-filter-row {
+    display: none;
+  }
+
+  .workspace-meta.context-open .context-filter-row {
+    display: grid;
+  }
+
+  .context-filter {
+    min-width: 0;
+    font-size: 11px;
+  }
+
+  .context-filter select,
+  .context-filter input[type="search"],
+  .context-filter [data-context-variant] {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: 40px;
+  }
+
+  .context-filter-row .context-variant-search,
+  .context-filter-row .context-filter:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .workspace-actions {
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .workspace-actions button {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  /* Toolbars: wrap and use comfortable tap targets. */
+  .workspace-actions,
+  .toolbar,
+  .table-toolbar,
+  .engineering-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  button,
+  .tab-button,
+  .admin-tabs button {
+    min-height: 40px;
+  }
+
+  button.tertiary,
+  .modal-close,
+  .sort-button,
+  .tree-toggle,
+  .part-preview-button {
+    min-height: 32px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  .engineering-table input,
+  .engineering-table select {
+    min-height: 36px;
+  }
+
+  /* Entry forms: two columns, full-width actions. */
+  .inline-editor,
+  .ecn-editor {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .inline-editor label,
+  .ecn-editor label {
+    min-width: 0;
+    font-size: 11px;
+  }
+
+  .inline-editor input,
+  .inline-editor select,
+  .ecn-editor input,
+  .ecn-editor select,
+  .ecn-editor textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+  }
+
+  .inline-editor > button {
+    grid-column: 1 / -1;
+    min-height: 44px;
+  }
+
+  /* Dashboard. */
+  .dashboard-heading {
+    min-height: 48px;
+    padding: 0 12px;
+  }
+
+  .dashboard-heading h1 {
+    font-size: 19px;
+  }
+
+  .dashboard-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .dashboard-kpi-card {
+    min-height: 104px;
+    padding: 10px 12px;
+  }
+
+  .demo-guide-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Tables and panels scroll sideways inside their own box. */
+  .matrix-panel,
+  .placeholder-panel,
+  .import-section,
+  .excel-export-workspace,
+  .commodity-master,
+  .commodity-mapping,
+  .commodity-workspace {
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .feature-matrix-workspace .matrix-panel {
+    overflow-x: hidden;
+  }
+
+  .feature-matrix-scroll,
+  .engineering-table-scroll,
+  .tab-panel,
+  [class*="table-wrap"],
+  [class*="table-scroll"] {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modals become bottom sheets. */
+  .modal-backdrop {
+    place-items: end center;
+    pointer-events: auto;
+  }
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    max-height: 92vh;
+    max-height: 92dvh;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .modal-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-footer {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Toasts sit above the safe area, full width. */
+  .toast-region {
+    left: 12px;
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .toast {
+    min-width: 0;
+  }
+
+  .app-tabs {
+    max-height: none;
+    overflow-x: auto;
+  }
+}
+
+/* ---------- Small phones (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .header-context-chip {
+    max-width: 130px;
+    padding: 0 8px;
+  }
+
+  .header-reset {
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+  }
+
+  .context-filter-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-kpi-card {
+    min-height: 96px;
+  }
+
+  .dashboard-kpi-value {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-context-chip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-navigation,
+  .nav-backdrop,
+  .context-toggle-chev {
+    transition: none;
+  }
+}

@@ -679,6 +679,8 @@
           try {
             applyEditor(container, editor);
             editor.hidden = true;
+            // allRows was replaced by the authoritative projection, so the parent index must be rebuilt.
+            rowsByParent = indexRowsByParent(allRows);
             visibleRows = buildVisibleRows(allRows, expandedNodeIds);
             refreshTableBody(container);
           } catch (error) {
@@ -947,7 +949,9 @@
     });
     filteredVariants.sort(compareVariantLabels);
     var visibleVariants = limitVariantOptions(filteredVariants, variant.id || "", 50);
+    var contextSummary = [activeCustomer, activeSeatType, variant.side, variant.grade].filter(Boolean).join(" \u00b7 ") || "Select context";
     return [
+      '<button type="button" class="context-toggle" data-context-toggle aria-expanded="false"><span class="context-toggle-label">Context</span><span class="context-toggle-value">' + app.utils.escapeHtml(contextSummary) + '</span><span class="context-toggle-chev" aria-hidden="true"></span></button>',
       '<div class="context-filter-row">',
       contextSelect("Programme", "data-context-program", programs.map(function (item) {
         return { value: item.id, label: item.programCode || item.name || item.id };
