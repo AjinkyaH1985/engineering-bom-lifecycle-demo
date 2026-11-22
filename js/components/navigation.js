@@ -145,8 +145,7 @@
         '<button type="button" role="tab" class="' + (activeTab === "apps" ? "active" : "") + '" data-nav-tab="apps" aria-selected="' + (activeTab === "apps") + '">Apps</button>',
         '<button type="button" role="tab" class="' + (activeTab === "recent" ? "active" : "") + '" data-nav-tab="recent" aria-selected="' + (activeTab === "recent") + '">Recent Items</button>',
         '</div>',
-        '<div class="nav-list" role="tabpanel">' + (activeTab === "recent" ? renderRecent(currentWorkspace) : renderApps(currentWorkspace)) + '</div>',
-        '<div class="nav-foot"><div class="nav-note">Portfolio Demonstration &mdash; Synthetic automotive engineering data</div><button type="button" class="nav-foot-link" data-reset-demo>Reset demo data</button></div>'
+        '<div class="nav-list" role="tabpanel">' + (activeTab === "recent" ? renderRecent(currentWorkspace) : renderApps(currentWorkspace)) + '</div>'
       ].join("");
       bind(root);
     }

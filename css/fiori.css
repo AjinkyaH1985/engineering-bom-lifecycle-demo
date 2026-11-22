@@ -1686,24 +1686,3 @@ label {
     max-width: none !important;
   }
 }
-
-/* Portfolio statement on the white header and in the side menu. */
-.portfolio-note {
-  margin-right: 8px;
-  color: var(--muted);
-  font-size: 11px;
-  white-space: nowrap;
-}
-
-@media (max-width: 1250px) {
-  .portfolio-note {
-    display: none;
-  }
-}
-
-.nav-note {
-  margin-bottom: 6px;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.35;
-}

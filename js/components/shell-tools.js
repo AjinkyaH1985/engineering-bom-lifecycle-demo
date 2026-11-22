@@ -96,9 +96,11 @@
   }
 
   function openSearch() {
-    document.body.classList.add("search-open");
     var input = document.querySelector("[data-hdr-search-input]");
-    if (input) { input.focus(); if (input.value) renderResults(runSearch(input.value), input.value); }
+    if (!input) return;
+    document.body.classList.add("search-open");
+    input.focus();
+    if (input.value) renderResults(runSearch(input.value), input.value);
   }
 
   function closeSearch() {
@@ -246,14 +248,6 @@
     if (event.key === "Enter" && input && input.matches && input.matches("[data-hdr-search-input]") && currentResults.length) {
       event.preventDefault();
       chooseResult(currentResults[0]);
-    }
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if ((event.key === "/" || (event.key === "k" && (event.ctrlKey || event.metaKey))) &&
-        !/^(INPUT|TEXTAREA|SELECT)$/.test((event.target && event.target.tagName) || "")) {
-      event.preventDefault();
-      openSearch();
     }
   });
 
