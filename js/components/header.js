@@ -19,7 +19,7 @@
         icon("menu", 20),
         '</button>',
         '<div class="header-brand">',
-        '<div class="brand-title">Engineering BOM Lifecycle</div>',
+        '<button type="button" class="brand-title" data-goto-workspace="dashboard" title="Go to Dashboard">Engineering BOM Lifecycle</button>',
         '</div>',
         '<div class="header-toolbar">',
         '<button type="button" class="hdr-icon" data-hdr-bell aria-label="Notifications and recent activity" title="Notifications" aria-expanded="false">' + icon("bell") + '</button>',
