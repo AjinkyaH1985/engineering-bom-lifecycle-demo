@@ -271,7 +271,7 @@
     return [
       '<section class="demo-guide" aria-label="Try the lifecycle">',
       '<div class="demo-guide-head"><strong>Try the lifecycle</strong>',
-      '<span>Sample data only. Everything you enter stays in this browser. Use <em>Reset demo data</em> in the side menu or user menu to start over.</span></div>',
+      '<span>Sample data only. Everything you enter stays in this browser. Use <em>Reset demo data</em> in the user menu (top right) to start over.</span></div>',
       '<ol class="demo-guide-steps">',
       GUIDE_STEPS.map(function (step) {
         return '<li><button type="button" data-dashboard-target="' + escape(step.target) + '">' +

@@ -44,11 +44,13 @@ const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
   });
 })();
 
-(function portfolioStatementStaysVisible() {
+(function resetStaysReachable() {
+  const tools = fs.readFileSync(path.join(root, "js/components/shell-tools.js"), "utf8");
   const header = fs.readFileSync(path.join(root, "js/components/header.js"), "utf8");
-  const navigation = fs.readFileSync(path.join(root, "js/components/navigation.js"), "utf8");
-  assert.ok(header.includes("Synthetic automotive engineering data"), "Header must keep the synthetic-data statement");
-  assert.ok(navigation.includes("Synthetic automotive engineering data"), "Side menu must keep the synthetic-data statement for small screens");
+  assert.ok(tools.includes("Reset demo data"), "Reset demo data must stay available from the user menu");
+  assert.ok(header.includes("data-hdr-avatar"), "The user menu button must stay in the header");
+  assert.ok(!header.includes("portfolio-note") && !header.includes("header-context-chip") && !header.includes("data-hdr-search"),
+    "Header must not show the portfolio note, active-variant chip or search");
 })();
 
 console.log("UI shell tests passed");
