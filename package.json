@@ -4,8 +4,9 @@
   "private": true,
   "description": "Portfolio demonstration of an automotive Engineering BOM lifecycle workflow.",
   "scripts": {
-    "test": "node tests/public-portfolio.test.js",
-    "test:syntax": "node tests/syntax-sweep.js"
+    "test": "node tests/public-portfolio.test.js && node tests/ui-shell.test.js",
+    "test:syntax": "node tests/syntax-sweep.js",
+    "test:ui": "node tests/ui-shell.test.js"
   },
   "license": "MIT"
 }

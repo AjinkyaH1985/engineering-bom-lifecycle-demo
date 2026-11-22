@@ -34,6 +34,13 @@ The included synthetic AX7 dataset contains three Finished-Good Variants for Ori
 - Local `.xlsx` import with validation, preview, fingerprinting, and atomic commit
 - Released Revision `.xlsx` export
 
+## Interface
+
+- Light enterprise shell: header with search (press `/`), notifications and user menu; side navigation with **Apps** and **Recent Items**.
+- Dashboard with a summary strip, Programme and Finished-Good Variant panels, recent engineering changes and a Result List tree with row action menus.
+- Responsive layout for desktop, tablet and phone: on small screens the menu becomes a drawer, forms use two columns and dialogs open as bottom sheets.
+- **Reset demo data** (side menu or user menu) restores the synthetic sample. Entries are stored only in the visitor's browser.
+
 ## Architecture
 
 The application is intentionally framework-free and runs entirely in the browser:
